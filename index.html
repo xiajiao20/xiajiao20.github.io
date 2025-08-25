@@ -53,17 +53,15 @@
   </div>
 
   <script>
-    // docs 文件列表（手动维护，或用脚本生成）
-    const files = ["字符串.html", "列表.html"];
+    const files = [];
 
     const menu = document.getElementById("menu");
     const content = document.getElementById("content");
 
-    // 根据文件名生成目录
     files.forEach(file => {
       const li = document.createElement("li");
       const a = document.createElement("a");
-      a.textContent = file.replace(".html", ""); // 去掉扩展名作为标题
+      a.textContent = file.replace(".html", "");
       a.href = "#";
       a.onclick = (e) => {
         e.preventDefault();
@@ -73,7 +71,6 @@
       menu.appendChild(li);
     });
 
-    // 加载文档内容
     function loadDoc(file) {
       fetch("docs/" + file)
         .then(res => res.text())
